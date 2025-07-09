@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body style="background-color:aliceblue;text-align: center;">
+    <p><b><h2>To create the object</h2></b></p>
+    <i><p id="uni"></p></i>
+        <a href="mul.html"><h3><b>click me to see the object</b></h3></a>
+
+    <script>
+        const uni={
+           Collegename:"NS College of Engineering",
+           CollegeCode:"4010",
+           No_dept:"10",
+           No_deg:"B.E , B.TECh , B.Com ,B.Ed",
+           faculty:"500+"
+    };
+document.getElementById("uni").innerHTML =
+      uni.Collegename + " is one of the best colleges. Code: " +
+      uni.CollegeCode + ". You can search by this code. " +
+      uni.No_dept + " departments, " +
+      uni.No_deg + " degrees available. " +
+      uni.faculty + " faculty members available.";
+  </script>
+</body>
+</html>

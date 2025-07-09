@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGICAL OPERATORS</title>
+</head>
+<body style="background-color: cadetblue;text-align: center">
+    <h2>Next step is to bulid the boolean operators</h2>
+<p><b>It is the ADD operator</b></p>
+<p id="and"></p>
+<p><b>It is the OR operators</b></p>
+<p id="or"></p>
+<p><b>It is the NOT operator</b></p>
+<p id="not"></p>
+    <a href="assign.html"><h3><b>click me to see the Assignment operators</b></h3></a>
+
+<script>
+    const q=true;
+    const r=true;  
+    const w=q&&r;  
+    const a=q||r;
+    let n="Nisha";
+    let s="Sri";
+    let b= n!=s;
+    document.getElementById("and").innerHTML=`And operator: ${q&&r} = ${w}`;
+    document.getElementById("or").innerHTML=`OR operator: ${q||r} = ${a}`;
+    document.getElementById("not").innerHTML=`NOT operator: ${n!=s} = ${b}`;
+
+</script>
+    
+</body>
+</html>

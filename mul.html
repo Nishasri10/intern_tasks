@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nested Object Demo</title>
+</head>
+<body style="background-color: aqua;text-align: center">
+  <h1>University Overview</h1>
+  <div id="output"></div>
+
+  <script>
+
+    const university = {
+      name: "Global Tech University",
+      code: "GTU101",
+      stats: {
+        departments: 8,
+        degrees: 24,
+        faculty: 180
+      },
+      location: {
+        country: "India",
+        city: "Bangalore",
+        address: {
+          line1: "123 Tech Park Rd",
+          zip: "560001"
+        }
+      },
+      campuses: {
+        main: { students: 5000, faculty: 180 },
+        satellite: { students: 1500, faculty: 60 }
+      },
+      courses: [
+        { id: "CSE", name: "Computer Science & Engg" },
+        { id: "ECE", name: "Electronics & Comm Engg" },
+        { id: "ME",  name: "Mechanical Engineering" }
+      ]
+    };
+
+    const html = `
+      <p><strong> ${university.name} (${university.code})</strong></p>
+      <p>Location: ${university.location.city}, ${university.location.country}</p>
+      <p>Address: ${university.location.address.line1}, ZIP ${university.location.address.zip}</p>
+      <p>Stats: ${university.stats.departments} departments, ${university.stats.degrees} degrees, ${university.stats.faculty} faculty members.</p>
+      <p>Campuses:</p>
+      <ul>
+        <li>Main: ${university.campuses.main.students} students, ${university.campuses.main.faculty} faculty</li>
+        <li>Satellite: ${university.campuses.satellite.students} students, ${university.campuses.satellite.faculty} faculty</li>
+      </ul>
+      <p>Courses Offered:</p>
+      <ul>
+        ${university.courses.map(c => `<li>${c.id}: ${c.name}</li>`).join("")}
+      </ul>
+    `;
+    document.getElementById("output").innerHTML = html;
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARITHMETIC OPERATORS</title>
+</head>
+<body style="background-color: olivedrab;text-align: center">
+  <h2>CREATING OPERATORS</h2>
+  <p>I'M BUILDING THE ARITHMETIC OPERATORS</p>
+
+  <p id="add"></p>
+  <p id="sub"></p>
+  <p id="mul"></p>
+  <p id="div"></p>
+  <p id="mod"></p>
+  <p id="exp"></p>
+<a href="logic.html"><h3><b>Click me to see the logical operators</b></h3></a>
+
+  <script>
+    let x = 100;
+    let y = 90;
+    let sum = x + y;           
+    let difference = x - y;    
+    let product = x * y;       
+    let quotient = x / y;      
+    let remainder = x % y;    
+    let power = x ** 2;  
+
+      // Perform arithmetic and display
+      document.getElementById("add").innerHTML = `Addition: ${x} + ${y} = ${sum}`;
+      document.getElementById("sub").innerHTML = `Subtraction: ${x} - ${y} = ${difference}`;
+      document.getElementById("mul").innerHTML = `Multiplication: ${x} * ${y} = ${product}`;
+      document.getElementById("div").innerHTML = `Division: ${x} / ${y} = ${quotient}`;
+      document.getElementById("mod").innerHTML = `Remainder: ${x} % ${y} = ${remainder}`;
+      document.getElementById("exp").innerHTML = `Exponentiation: ${x}² = ${power}`;
+
+    
+  </script>
+</body>
+</html>

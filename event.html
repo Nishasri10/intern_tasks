@@ -1,0 +1,115 @@
+<h1>OPERATORS</h1>
+<button onclick="ass()">ASSIGNMENT OPERATORS</button>
+<button onclick="arith()">ARITHMETIC OPERATORS</button>
+<button onclick="com()">COMPARISION OPERATORS</button>
+<button onclick="logic()">LOGICAL OPERATORS</button>
+
+
+<h2>Arithmetic operator</h2>
+<p id="add"></p>
+<p id="sub"></p>
+<p id ="mul"></p>
+<p id="div"></p>
+<p id="mod"></p>
+<p id="exp"></p>
+<hr>
+<h2>Assignment operator</h2>
+<p id="add1"></p>
+<p id="sub1"></p>
+<p id ="mul1"></p>
+<p id="div1"></p>
+<p id="mod1"></p>
+<p id="exp1"></p>
+<hr>
+<h2>Comparision operator</h2>
+    <p id="less"></p>
+    <p id="greater"></p>
+   <p id="lequal"></p>
+<p id="gequal"></p>
+<p id="=="></p>
+<p id="!="></p>
+<hr>
+<h2>Logical operator</h2>
+<p id="and"></p>
+<p id="or"></p>
+<p id="not"></p>
+<hr>
+
+<script>
+    function arith(){
+    let x = 10;
+    x += 5;
+   document.getElementById("add").innerHTML = "<p><b>It is the add operators</b></p>" + x;
+   let y = 39;
+   y -= 10;
+   document.getElementById("sub").innerHTML="<p><b>It is the sub operators</b></p>" + y;
+   let z = 30;
+   z *= 5;
+document.getElementById("mul").innerHTML ="<p><b>It is the Multiplication operator</b></p>" + z;
+
+   let a = 30;
+   z /= 5;
+document.getElementById("div").innerHTML ="<p><b>It is the division operator</b></p>" + a;
+   let b = 45;
+   b %= 4;
+document.getElementById("mod").innerHTML ="<p><b>It is the modulus operator</b></p>" + b;
+   let c = 3;
+   c **= 2;
+document.getElementById("exp").innerHTML = "<p><b>It is the Exponentiation operator</b></p>" + c;
+
+    }
+    function ass(){
+
+
+    let x = 10;
+    x += 5;
+   document.getElementById("add1").innerHTML = "<p><b>It is the add operators</b></p>" + x;
+   let y = 39;
+   y -= 10;
+   document.getElementById("sub1").innerHTML="<p><b>It is the sub operators</b></p>" + y;
+   let z = 30;
+   z *= 5;
+document.getElementById("mul1").innerHTML = "<p><b>It is the Multiplication operator</b></p>" + z;
+
+   let a = 30;
+   z /= 5;
+document.getElementById("div1").innerHTML = "<p><b>It is the division operator</b></p>" + a;
+   let b = 45;
+   b %= 4;
+document.getElementById("mod1").innerHTML ="<p><b>It is the modulus operator</b></p>" + b;
+   let c = 3;
+   c **= 2;
+document.getElementById("exp1").innerHTML = "<p><b>It is the Exponentiation operator</b></p>" + c;
+
+    }
+    function com(){
+        let int1 = 5;
+let int2 = 5;
+let result = int1 < int2;
+let result2 = int1 > int2;
+let result3 = int1 <= int2;
+let result4 =int1 >= int2;
+let result5 = int1==int2;
+let result6 = int1!=int2;
+
+document.getElementById("less").innerHTML = "<p><b>Less than comparision operator is used</b></p><br>" + "Is A less than B? " + result;
+document.getElementById("greater").innerHTML = "<p><b>Greater than comparision operator is used</b></p><br>" + "Is A greater than B? " + result2;
+document.getElementById("lequal").innerHTML = "<p><b>Less than equal to comparision operator is used</b></p><br>" + "Is A less than equal to B? " + result3;
+document.getElementById("gequal").innerHTML = "<p><b>Greater than equal to comparision operator is used</b></p><br>" + "Is A less than equal to B? " + result4;
+document.getElementById("==").innerHTML ="<p><b>double equal to comparision operator is used</b></p><br>" + "Is A equal to B? " + result5;
+document.getElementById("!=").innerHTML =  "<p><b>not equal to comparision operator is used</b></p><br>" + "Is A Not equal to B? " + result6;
+}
+function logic(){
+    const q=true;
+    const r=true;  
+    const w=q&&r;  
+    const a=q||r;
+    let n="Nisha";
+    let s="Sri";
+    let b= n!=s;
+    document.getElementById("and").innerHTML="<p><b>It is the ADD operator</b></p>" + `And operator: ${q&&r} = ${w}`;
+    document.getElementById("or").innerHTML="<p><b>It is the ADD operator</b></p>" + `OR operator: ${q||r} = ${a}`;
+    document.getElementById("not").innerHTML="<p><b>It is the ADD operator</b></p>" + `NOT operator: ${n!=s} = ${b}`;
+
+}
+    </script>
