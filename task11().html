@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Styled JavaScript Comparison Operators</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 400px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 16px;
+      width: 48%;
+      margin: 10px 1%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+    }
+
+    .button-group {
+      margin: 20px 0;
+    }
+
+    .button-group button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      margin: 5px;
+      padding: 10px 14px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-group button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Comparison Operators</h1>
+
+    <input type="text" id="input1" placeholder="Enter value 1">
+    <input type="text" id="input2" placeholder="Enter value 2">
+
+    <div class="button-group">
+      <button onclick="compare('==')">==</button>
+      <button onclick="compare('===')">===</button>
+      <button onclick="compare('!=')">!=</button>
+      <button onclick="compare('!==')">!==</button>
+      <button onclick="compare('>')">></button>
+      <button onclick="compare('<')"><</button>
+      <button onclick="compare('>=')">>=</button>
+      <button onclick="compare('<=')"><=</button>
+    </div>
+
+    <div id="result">Result will appear here</div>
+
+  </div>
+
+  <script>
+    function compare(operator) {
+      let val1 = document.getElementById('input1').value;
+      let val2 = document.getElementById('input2').value;
+
+      let x = isNaN(val1) ? val1 : parseFloat(val1);
+      let y = isNaN(val2) ? val2 : parseFloat(val2);
+
+      let result;
+      if (operator === '==') result = x == y;
+      else if (operator === '===') result = x === y;
+      else if (operator === '!=') result = x != y;
+      else if (operator === '!==') result = x !== y;
+      else if (operator === '>') result = x > y;
+      else if (operator === '<') result = x < y;
+      else if (operator === '>=') result = x >= y;
+      else if (operator === '<=') result = x <= y;
+      else result = "Invalid operator";
+
+      // Display result
+      document.getElementById('result').textContent = `Result: ${result}`;
+    }
+  </script>
+
+</body>
+</html>

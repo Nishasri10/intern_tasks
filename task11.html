@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaScript Math Operators</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 18px;
+      width: 300px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .button-group {
+      margin: 20px 0;
+    }
+
+    .constants button {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .operators button {
+      background-color: #28a745;
+      color: white;
+    }
+
+    button {
+      border: none;
+      padding: 10px 16px;
+      margin: 5px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Math Constants & Operators</h1>
+
+  <div class="section">
+    <label for="constantOutput">Math Constant Output:</label>
+    <input type="text" id="constantOutput" readonly placeholder="Click a constant button" />
+
+    <div class="button-group constants">
+      <button onclick="showConstant('E')">Math.E</button>
+      <button onclick="showConstant('PI')">Math.PI</button>
+      <button onclick="showConstant('SQRT2')">Math.SQRT2</button>
+      <button onclick="showConstant('SQRT1_2')">Math.SQRT1_2</button>
+      <button onclick="showConstant('LN2')">Math.LN2</button>
+      <button onclick="showConstant('LN10')">Math.LN10</button>
+      <button onclick="showConstant('LOG2E')">Math.LOG2E</button>
+      <button onclick="showConstant('LOG10E')">Math.LOG10E</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <label for="operatorInput">Enter value for operators:</label>
+    <input type="number" id="operatorInput" placeholder="Enter a number" />
+
+    <label for="operatorOutput">Operator Output:</label>
+    <input type="text" id="operatorOutput" readonly placeholder="Result will appear here" />
+
+    <div class="button-group operators">
+      <button onclick="applyMath('abs')">Math.abs(x)</button>
+      <button onclick="applyMath('ceil')">Math.ceil(x)</button>
+      <button onclick="applyMath('floor')">Math.floor(x)</button>
+      <button onclick="applyMath('round')">Math.round(x)</button>
+      <button onclick="applyMath('trunc')">Math.trunc(x)</button>
+      <button onclick="applyMath('sqrt')">Math.sqrt(x)</button>
+      <button onclick="applyMath('pow')">Math.pow(x, 2)</button>
+      <button onclick="applyMath('log')">Math.log(x)</button>
+      <button onclick="applyMath('log2')">Math.log2(x)</button>
+      <button onclick="applyMath('log10')">Math.log10(x)</button>
+      <button onclick="applyMath('exp')">Math.exp(x)</button>
+    </div>
+  </div>
+
+  <script>
+    const constantOutput = document.getElementById("constantOutput");
+    const operatorInput = document.getElementById("operatorInput");
+    const operatorOutput = document.getElementById("operatorOutput");
+
+    function showConstant(name) {
+      const constants = {
+        E: Math.E,
+        PI: Math.PI,
+        SQRT2: Math.SQRT2,
+        SQRT1_2: Math.SQRT1_2,
+        LN2: Math.LN2,
+        LN10: Math.LN10,
+        LOG2E: Math.LOG2E,
+        LOG10E: Math.LOG10E,
+      };
+      constantOutput.value = constants[name];
+    }
+
+    function applyMath(op) {
+      const x = parseFloat(operatorInput.value);
+      if (isNaN(x) || (["log", "log2", "log10", "sqrt"].includes(op) && x <= 0)) {
+        operatorOutput.value = "Invalid input";
+        return;
+      }
+
+      let result;
+      switch (op) {
+        case "abs": result = Math.abs(x); break;
+        case "ceil": result = Math.ceil(x); break;
+        case "floor": result = Math.floor(x); break;
+        case "round": result = Math.round(x); break;
+        case "trunc": result = Math.trunc(x); break;
+        case "sqrt": result = Math.sqrt(x); break;
+        case "pow": result = Math.pow(x, 2); break;
+        case "log": result = Math.log(x); break;
+        case "log2": result = Math.log2(x); break;
+        case "log10": result = Math.log10(x); break;
+        case "exp": result = Math.exp(x); break;
+        default: result = "Error";
+      }
+
+      operatorOutput.value = result;
+    }
+  </script>
+
+</body>
+</html>
