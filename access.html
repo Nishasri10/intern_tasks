@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Access Control</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url(se.webp) no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    input, select {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Access Control Check</h2>
+    <select id="userType">
+      <option value="">-- Select User Type --</option>
+      <option value="admin">Admin</option>
+      <option value="premium">Premium</option>
+      <option value="guest">Guest</option>
+    </select><br>
+    <label><input type="checkbox" id="expired"> Account Expired</label><br><br>
+    <button onclick="checkAccess()">Check Access</button>
+    <div class="result" id="accessResult"></div>
+  </div>
+
+  <script>
+    function checkAccess() {
+      const user = document.getElementById("userType").value;
+      const expired = document.getElementById("expired").checked;
+      const result = document.getElementById("accessResult");
+
+      if ((user === "admin" || user === "premium") && !expired) {
+        result.textContent = "✅ Access Granted!";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Access Denied!";
+        result.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>

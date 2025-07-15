@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exam Eligibility Checker</title>
+  <style>
+    body {
+      background: url(scl.jpg) no-repeat center center/cover;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 350px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #28a745;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #218838;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Exam Eligibility Checker</h2>
+    <input type="number" id="attendance" placeholder="Attendance (%)" min="0" max="100">
+    <input type="number" id="marks" placeholder="Internal Marks" min="0" max="30">
+    <button onclick="checkEligibility()">Check Eligibility</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function checkEligibility() {
+      const attendance = parseFloat(document.getElementById("attendance").value);
+      const marks = parseFloat(document.getElementById("marks").value);
+      const resultDiv = document.getElementById("result");
+
+      if (isNaN(attendance) || isNaN(marks)) {
+        resultDiv.textContent = "Please enter both attendance and internal marks.";
+        resultDiv.style.color = "red";
+        return;
+      }
+
+      if (attendance >= 75 && marks >= 20) {
+        resultDiv.textContent = "✅ Eligible for Exam!";
+        resultDiv.style.color = "green";
+      } else if (attendance < 75 && marks < 20) {
+        resultDiv.textContent = "❌ Not eligible: Attendance < 75% and Marks < 20.";
+        resultDiv.style.color = "red";
+      } else if (attendance < 75) {
+        resultDiv.textContent = "❌ Not eligible: Attendance is less than 75%.";
+        resultDiv.style.color = "red";
+      } else if (marks < 20) {
+        resultDiv.textContent = "❌ Not eligible: Internal marks are less than 20.";
+        resultDiv.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>

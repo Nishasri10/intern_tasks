@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sort Three Numbers</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url(sort.jpg) no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 350px;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      margin: 10px 0;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sort Three Numbers</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <input type="number" id="num3" placeholder="Enter third number">
+    <button onclick="sortNumbers()">Sort</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function sortNumbers() {
+      let a = parseFloat(document.getElementById("num1").value);
+      let b = parseFloat(document.getElementById("num2").value);
+      let c = parseFloat(document.getElementById("num3").value);
+      const result = document.getElementById("result");
+
+      if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        result.textContent = "Please enter all three numbers.";
+        result.style.color = "red";
+        return;
+      }
+      let first, second, third;
+      if (a <= b && a <= c) {
+        first = a;
+        if (b <= c) {
+          second = b;
+          third = c;
+        } else {
+          second = c;
+          third = b;
+        }
+      } else if (b <= a && b <= c) {
+        first = b;
+        if (a <= c) {
+          second = a;
+          third = c;
+        } else {
+          second = c;
+          third = a;
+        }
+      } else {
+        first = c;
+        if (a <= b) {
+          second = a;
+          third = b;
+        } else {
+          second = b;
+          third = a;
+        }
+      }
+
+      result.style.color = "#333";
+      result.textContent = `Ascending order: ${first}, ${second}, ${third}`;
+    }
+  </script>
+</body>
+</html>

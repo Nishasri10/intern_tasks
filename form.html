@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Form Field Validator</title>
+  <style>
+    body {
+      background: url(for.jpg) no-repeat center center/cover;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 350px;
+    }
+    input {
+      padding: 10px;
+      width: 90%;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #00796b;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Form Validator</h2>
+    <input type="text" id="name" placeholder="Enter name">
+    <input type="number" id="age" placeholder="Enter age">
+    <input type="email" id="email" placeholder="Enter email">
+    <button onclick="validateForm()">Validate</button>
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const age = parseInt(document.getElementById("age").value);
+      const email = document.getElementById("email").value;
+      const output = document.getElementById("output");
+
+      if (name === "") {
+        output.textContent = "❌ Name cannot be empty.";
+        output.style.color = "red";
+      } else if (isNaN(age) || age <= 0) {
+        output.textContent = "❌ Age must be a positive number.";
+        output.style.color = "red";
+      } else if (!email.includes("@") || !email.includes(".")) {
+        output.textContent = "❌ Enter a valid email address.";
+        output.style.color = "red";
+      } else {
+        output.textContent = "✅ All fields are valid!";
+        output.style.color = "green";
+      }
+    }
+  </script>
+</body>
+</html>

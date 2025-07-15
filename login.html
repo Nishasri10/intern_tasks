@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animated Login Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: url('img.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wrapper {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 15px;
+      width: 400px;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-bottom: 20px;
+    }
+
+    .input-group input {
+      padding: 10px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .input-group label {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .remember {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .remember input {
+      margin-right: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #007BFF;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .signUp-link {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .signUp-link a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .signUp-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <form>
+      <h2>Login</h2>
+      <div class="input-group">
+        <input type="text" placeholder="Enter the Username" required>
+        <label>Username</label>
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Enter the Password" required>
+        <label>Password</label>
+      </div>
+      <div class="remember">
+        <label><input type="checkbox"> Remember me</label>
+      </div>
+      <button type="submit">Login</button>
+      <div class="signUp-link">
+        <p>Don't have an account? <a href="#" class="signUpBtn-link">Sign Up</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

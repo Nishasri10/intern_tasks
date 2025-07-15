@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greeting Based on Time</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      background: url(nat.jpg) no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .greeting-box {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .greeting-box h1 {
+      font-size: 28px;
+      color: #333;
+    }
+
+    .time {
+      margin-top: 10px;
+      color: #777;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="greeting-box">
+    <h1 id="greeting">Loading...</h1>
+    <div class="time" id="time"></div>
+  </div>
+
+  <script>
+    function showGreeting() {
+      const now = new Date();
+      const hour = now.getHours();
+      const minute = now.getMinutes().toString().padStart(2, '0');
+      const time = `${hour}:${minute}`;
+      let greeting = "";
+
+      if (hour >= 5 && hour < 12) {
+        greeting = "Good Morning";
+      } else if (hour >= 12 && hour < 17) {
+        greeting = "Good Afternoon";
+      } else if (hour >= 17 && hour < 21) {
+        greeting = "Good Evening";
+      } else {
+        greeting = "Good Night";
+      }
+
+      document.getElementById("greeting").textContent = greeting;
+      document.getElementById("time").textContent = `Current time: ${time}`;
+    }
+
+    // Call it immediately
+    showGreeting();
+  </script>
+</body>
+</html>

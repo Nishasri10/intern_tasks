@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Cart Discount</title>
+  <style>
+    body {
+      background: url(mall.jpg) no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 350px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Shopping Cart Discount</h2>
+    <input type="number" id="totalAmount" placeholder="Enter total amount" min="0" />
+    <button onclick="calculateDiscount()">Apply Discount</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateDiscount() {
+      const amount = parseFloat(document.getElementById("totalAmount").value);
+      const resultDiv = document.getElementById("result");
+
+      if (isNaN(amount) || amount < 0) {
+        resultDiv.textContent = "Please enter a valid amount.";
+        resultDiv.style.color = "red";
+        return;
+      }
+
+      let discount = 0;
+
+      if (amount > 1000) {
+        discount = 0.2; // 20%
+      } else if (amount > 500) {
+        discount = 0.1; // 10%
+      }
+
+      const discountAmount = amount * discount;
+      const finalAmount = amount - discountAmount;
+
+      resultDiv.style.color = "#333";
+      resultDiv.innerHTML = `
+        Total Amount: ₹${amount.toFixed(2)}<br>
+        Discount: ₹${discountAmount.toFixed(2)} (${discount * 100}%)<br>
+        Final Amount: <strong>₹${finalAmount.toFixed(2)}</strong>
+      `;
+    }
+  </script>
+</body>
+</html>
